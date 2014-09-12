@@ -1,25 +1,54 @@
 package br.com.buritech.curso.jse.cap07;
 
-public class Retangulo extends PoligonoGenerico {	
+public class Retangulo extends PoligonosGenericos {
+	private int altura;
+	private int comprimento;
+	
+	public Retangulo(String nome, int comprimento, int altura) {
+		super(nome);
+		super.setNumeroDeLados(4);
 
+		this.comprimento = comprimento;
+		this.altura = altura;
+	}
 
-	public Retangulo(String nome, int numeroDeLados, int base, int altura) {
-		super(nome, numeroDeLados);
+	public int getAltura() {
+		return altura;
+	}
 
-		int[] lados = new int[numeroDeLados];
-		for(int x = 0; x < this.getNumeroDeLados(); x++){
-			if((x % 2) == 0)
-				lados[x] = altura;
-			else
-				lados[x] = base;
-		}
-		
-		this.setTamanhoLados(lados);
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+
+	public int getComprimento() {
+		return comprimento;
+	}
+
+	public void setComprimento(int comprimento) {
+		this.comprimento = comprimento;
 	}
 
 	@Override
-	public double calcularArea(int[] tamanhoLados) {
-		//área = base * altura
-		return tamanhoLados[0] * tamanhoLados[1];
+	public void calcularArea() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void imprimirDados() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void calcularPerimetro() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterarDados() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,29 +1,65 @@
 package br.com.buritech.curso.jse.cap07;
 
-public class Triangulo extends PoligonoGenerico {
+public class Triangulo extends PoligonosGenericos {
+	private int ladoA;
+	private int ladoB;
+	private int ladoC;
 
-	public Triangulo(String nome, int numeroDeLados, int[] lados) {
-		super(nome, numeroDeLados);
+	public Triangulo(String nome, int ladoA, int ladoB, int ladoC) {
+		super(nome);
 		
-		this.setTamanhoLados(lados);
-	}
-	
-		@Override
-	public int calcularPerimetro(int[] tamanhoLados) {
-		return (super.calcularPerimetro(tamanhoLados)/2);
+		super.setNumeroDeLados(3);
+		
+		this.ladoA = ladoA;
+		this.ladoB = ladoB;
+		this.ladoC = ladoC;
 	}
 
+	public int getLadoA() {
+		return ladoA;
+	}
 
+	public void setLadoA(int ladoA) {
+		this.ladoA = ladoA;
+	}
+
+	public int getLadoB() {
+		return ladoB;
+	}
+
+	public void setLadoB(int ladoB) {
+		this.ladoB = ladoB;
+	}
+
+	public int getLadoC() {
+		return ladoC;
+	}
+
+	public void setLadoC(int ladoC) {
+		this.ladoC = ladoC;
+	}
 
 	@Override
-	public double calcularArea(int[] tamanhoLados) {
-		//fórmula de Heron
-		int p = this.calcularPerimetro(tamanhoLados);
+	public void calcularArea() {
+		// TODO Auto-generated method stub
 		
-		int a = tamanhoLados[0];
-		int b = tamanhoLados[1];
-		int c = tamanhoLados[2];
+	}
+
+	@Override
+	public void imprimirDados() {
+		// TODO Auto-generated method stub
 		
-		return Math.sqrt(p*(p-a)*(p-b)*(p-c));
+	}
+
+	@Override
+	public void calcularPerimetro() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void alterarDados() {
+		// TODO Auto-generated method stub
+		
 	}
 }
