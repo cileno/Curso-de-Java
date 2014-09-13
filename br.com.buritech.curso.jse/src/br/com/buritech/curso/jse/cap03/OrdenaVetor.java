@@ -18,40 +18,31 @@ public class OrdenaVetor {
 		//inserindo valores no vetor
 		for (int ind = 0, mostraInd = 1; ind < vet.length; ind++) {
 			vet[ind] = Integer.parseInt(JOptionPane.showInputDialog("Valor do "
-					+ (mostraInd++) + "º elemento"));
+					+ (mostraInd++) + "ï¿½ elemento"));
 		}
 		
-		tela.mostrarValoresDoVetor();		
+		boolean ordena = false;
+		do {
+			tela.mostrarValoresDoVetor();		
 
-		for(int posAtual = 0; posAtual < vet.length; posAtual++){
-			int posMenor = posAtual;
-			
-			int[] vetorAuxiliar = vet;
-			for(int indAtual = 0; indAtual < vetorAuxiliar.length; indAtual++){
-				if()
-			}
-			
-			System.out.println("Menor:"+vet[posMenor]+" EleAtual"+vet[posAtual]+ "ProxEle:"+vet[proxPos]);
-			/*
-			if(vet[posAtual] > vet[proxPos]){
-				
-			}
-			
-			if(vet[indAuxiliar] > vet[posAtual]){
-				vet[posAtual] = elementoAtual;
-				elementoAtual = indAuxiliar;
-				
-				
-				//System.out.println(menorElemento+" "+indAuxiliar+" "+vet[ind]);
+			int posAtual = 0;
+			int auxiliar = 0;
+			ordena = false;
 
-				tela.mostrarValoresDoVetor();				
+			for(int proxPos = 1; proxPos < vet.length; proxPos++){
+				System.out.println(vet[0]+" "+vet[1]+" "+vet[2]+" "+vet[3]+" "+vet[4]+" "+vet[5]+" "+vet[6]+" "+vet[7]+" "+vet[8]+" "+vet[9]);
+				if(vet[posAtual] > vet[proxPos]){
+					auxiliar = vet[posAtual];
+					vet[posAtual] = vet[proxPos];
+					vet[proxPos] = auxiliar;
+					ordena = true;
+					System.out.println("true");
+				}else{
+					System.out.println("false");
+				}
+				posAtual = proxPos;
 			}
-			
-			indAuxiliar = posAtual;
-			//JOptionPane.showMessageDialog(null, "menor:"+menorElemento+" aux:"+indAuxiliar+" vet:"+vet[ind]);
-			 * 
-			 */
-		}
+		} while(ordena);
 	}
 
 	private void mostrarValoresDoVetor() {
