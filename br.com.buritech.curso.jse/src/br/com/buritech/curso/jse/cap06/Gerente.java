@@ -4,7 +4,7 @@ public class Gerente extends Funcionario {
 	private int senha;
 	
 	public Gerente() {
-		//super();
+		super();
 	}
 	public Gerente(double salario) {
 		super(salario);
