@@ -1,33 +1,27 @@
 package br.com.buritech.curso.jse.cap04;
 
-public class ContaBancaria {
-	private String numeroConta;
-	private String nomeCliente;
+
+public class Conta {
+	private String numero;
 	private double saldo;
 	private double limite;
+	
+	private Cliente titular;
 
-	public ContaBancaria() {
+	public Conta() {
 
 	}
 
-	public ContaBancaria(double saldo) {
+	public Conta(double saldo) {
 		this.saldo = saldo;
 	}
 
 	public String getNumeroConta() {
-		return numeroConta;
+		return numero;
 	}
 
 	public void setNumeroConta(String numeroConta) {
-		this.numeroConta = numeroConta;
-	}
-
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
-
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+		this.numero = numeroConta;
 	}
 
 	public double getLimite() {
@@ -40,6 +34,14 @@ public class ContaBancaria {
 
 	public double getSaldo() {
 		return saldo;
+	}
+
+	public Cliente getTitular() {
+		return titular;
+	}
+
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
 	}
 
 	public boolean sacar(double valor) {
