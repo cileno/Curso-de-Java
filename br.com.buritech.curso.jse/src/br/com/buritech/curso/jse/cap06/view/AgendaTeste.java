@@ -1,4 +1,4 @@
-package br.com.buritech.curso.jse.cap06.app;
+package br.com.buritech.curso.jse.cap06.view;
 
 import javax.swing.JOptionPane;
 

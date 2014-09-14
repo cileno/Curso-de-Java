@@ -1,4 +1,4 @@
-package br.com.buritech.curso.jse.cap06.app;
+package br.com.buritech.curso.jse.cap06.view;
 
 import br.com.buritech.curso.jse.cap06.*;
 
