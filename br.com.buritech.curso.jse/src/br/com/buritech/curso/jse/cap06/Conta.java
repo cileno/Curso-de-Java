@@ -1,6 +1,6 @@
 package br.com.buritech.curso.jse.cap06;
 
-public class Conta {
+public class Conta implements Comparable<Conta> {
 	private String numero;
 	private double saldo;
 
@@ -13,6 +13,22 @@ public class Conta {
 		this.saldo = saldo;
 	}
 
+	@Override
+	public String toString() {
+		return ""+saldo;
+	}
+	
+	@Override
+	public int compareTo(Conta conta) {
+		if(this.saldo < conta.saldo){
+			return -1;
+		}else if(this.saldo > conta.saldo){
+			return 1;
+		}
+		// se this.saldo == conta.saldo
+		return 0;
+	}
+	
 	public String getNumero() {
 		return numero;
 	}
