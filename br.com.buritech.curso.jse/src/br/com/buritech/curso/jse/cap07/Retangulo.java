@@ -1,54 +1,38 @@
 package br.com.buritech.curso.jse.cap07;
 
-public class Retangulo extends PoligonosGenericos {
+public class Retangulo extends PoligonoGenerico {
+	private final static String NOME = "Retangulo";
+	private final static int LADOS = 4;
+
+	private int base;
 	private int altura;
-	private int comprimento;
 	
-	public Retangulo(String nome, int comprimento, int altura) {
-		super(nome);
-		super.setNumeroDeLados(4);
 
-		this.comprimento = comprimento;
+	public Retangulo(int base, int altura) {
+		super(NOME, LADOS);
+		
 		this.altura = altura;
-	}
-
-	public int getAltura() {
-		return altura;
-	}
-
-	public void setAltura(int altura) {
-		this.altura = altura;
-	}
-
-	public int getComprimento() {
-		return comprimento;
-	}
-
-	public void setComprimento(int comprimento) {
-		this.comprimento = comprimento;
+		this.base = base;
+		
+		preencherTamanhoDosLados();
 	}
 
 	@Override
-	public void calcularArea() {
-		// TODO Auto-generated method stub
-		
+	public double calcularArea() {
+		return (this.base * this.altura)/2;
 	}
 
 	@Override
-	public void imprimirDados() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void preencherTamanhoDosLados() {
+		int[] lados = new int[LADOS];
 
-	@Override
-	public void calcularPerimetro() {
-		// TODO Auto-generated method stub
-		
-	}
+		for (int x = 0; x < LADOS; x++) {
+			if((x % 2) == 0)
+				lados[x] = this.base;
+			else
+				lados[x] = this.altura;
+		}
 
-	@Override
-	public void alterarDados() {
-		// TODO Auto-generated method stub
-		
+		this.setTamanhoLados(lados);
 	}
 }

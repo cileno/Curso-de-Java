@@ -1,65 +1,45 @@
 package br.com.buritech.curso.jse.cap07;
 
-public class Triangulo extends PoligonosGenericos {
-	private int ladoA;
-	private int ladoB;
-	private int ladoC;
+public class Triangulo extends PoligonoGenerico {
+	private final static String NOME = "Triangulo";
+	private final static int LADOS = 3;
+	
+	private int[] lados = new int[LADOS];
 
-	public Triangulo(String nome, int ladoA, int ladoB, int ladoC) {
-		super(nome);
+	public Triangulo(int ladoA, int ladoB, int ladoC) {
+		super(NOME, LADOS);
 		
-		super.setNumeroDeLados(3);
+		lados[0] = ladoA;
+		lados[1] = ladoB;
+		lados[2] = ladoC;	
 		
-		this.ladoA = ladoA;
-		this.ladoB = ladoB;
-		this.ladoC = ladoC;
+		preencherTamanhoDosLados();
 	}
+	
+	@Override
+	public double calcularArea() {
+		double area = 0;
+		
+		int ladoA = this.getTamanhoLados()[0];
+		int ladoB = this.getTamanhoLados()[1];
+		int ladoC = this.getTamanhoLados()[2];
+		
+		// utilizando a formula de Heron:
+		// A = raizQuardada(semiPerimetro * (semiPerimetro - ladoA) *
+		// (semiPerimetro - ladoB) - (semiPerimetro - ladoC))
+		if(ladoC > 0){
+			double semiPer = this.calcularPerimetro(this.getTamanhoLados()) / 2;
+			area = Math.sqrt(semiPer * (semiPer - ladoA) * (semiPer - ladoB) * (semiPer - ladoC));
+		} else {
+			area = (ladoA * ladoB) / 2; //ladoA e ladoB corresponde a base e altura.
+		}
 
-	public int getLadoA() {
-		return ladoA;
-	}
-
-	public void setLadoA(int ladoA) {
-		this.ladoA = ladoA;
-	}
-
-	public int getLadoB() {
-		return ladoB;
-	}
-
-	public void setLadoB(int ladoB) {
-		this.ladoB = ladoB;
-	}
-
-	public int getLadoC() {
-		return ladoC;
-	}
-
-	public void setLadoC(int ladoC) {
-		this.ladoC = ladoC;
+		return area;
 	}
 
 	@Override
-	public void calcularArea() {
-		// TODO Auto-generated method stub
-		
+	public void preencherTamanhoDosLados() {
+		this.setTamanhoLados(lados);
 	}
 
-	@Override
-	public void imprimirDados() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void calcularPerimetro() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void alterarDados() {
-		// TODO Auto-generated method stub
-		
-	}
 }

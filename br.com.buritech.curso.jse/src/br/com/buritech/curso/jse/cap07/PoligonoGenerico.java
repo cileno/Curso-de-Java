@@ -9,26 +9,21 @@ public abstract class PoligonoGenerico {
 	public PoligonoGenerico(String nome, int numeroDeLados) {
 		this.nome = nome;
 		this.numeroDeLados = numeroDeLados;
-		
-		this.tamanhoLados = new int[this.numeroDeLados];
-		
-		for(int x = 0; x < this.numeroDeLados; x++)
-			this.tamanhoLados[x] = 0;
 	}
 	
 	@Override
 	public String toString() {
-		//coletando os tamanhos dos lados do polígono
+		//coletando os tamanhos dos lados do poligono
 		String medidaDosLados = "";
 		for(int x = 0; x < getNumeroDeLados(); x++){
 			medidaDosLados += getTamanhoLados()[x] + " ";
 		}
 		
 		//juntando todos os dados
-		String mostra = "Polígono: " + getNome() + " [" + getNumeroDeLados() + "]\n"
-				+ "\tMedida dos lados: " + medidaDosLados + "\n"
-				+ "\tÁrea: " + calcularArea(tamanhoLados) + "\n"
-				+ "\tPerimetro: " + calcularPerimetro(tamanhoLados);
+		String mostra = "Poligono: " + getNome() + " [" + getNumeroDeLados() + "]\n"
+				+ "Medida dos lados: " + medidaDosLados + "\n"
+				+ "Area: " + calcularArea() + "\n"
+				+ "Perimetro: " + calcularPerimetro(tamanhoLados);
 
 		return mostra;
 	}
@@ -57,7 +52,7 @@ public abstract class PoligonoGenerico {
 		this.tamanhoLados = tamanhoLados;
 	}
 
-	public abstract double calcularArea(int[] tamanhoLados);
+	public abstract double calcularArea();
 	
 	public int calcularPerimetro(int[] tamanhoLados){
 		int soma = 0;
@@ -73,4 +68,6 @@ public abstract class PoligonoGenerico {
 		this.setTamanhoLados(tamanhoLados);
 
 	}
+
+	public abstract void preencherTamanhoDosLados();
 }

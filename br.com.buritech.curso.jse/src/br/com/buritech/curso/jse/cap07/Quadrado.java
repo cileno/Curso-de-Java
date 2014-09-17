@@ -1,31 +1,32 @@
 package br.com.buritech.curso.jse.cap07;
 
-public class Quadrado extends PoligonosGenericos {
+public class Quadrado extends PoligonoGenerico {
+	private final static String NOME = "Quadrado";
+	private final static int LADOS = 4;
 
-	public Quadrado(String nome, int numeroDeLados) {
-		super(nome, numeroDeLados);
-	}
+	private int lado;
 
-	@Override
-	public int calcularArea(int[] tamanhoLados) {
-		//return getLado() * getLado()
-		return 0;
-	}
-
-	@Override
-	public int calcularPerimetro(int[] tamanhoLados) {
-		// getLado() * getNumeroDeLados();
-		return 0;
-	}
-
-	@Override
-	public void alterarDados(String nome, int numeroDeLados, int[] tamanhoLados) {
-		// TODO Auto-generated method stub
+	public Quadrado(int lado) {
+		super(NOME, LADOS);
 		
+		this.lado = lado;
+		
+		preencherTamanhoDosLados();
 	}
 
 	@Override
-	public void imprimirDados() {
-		//System.out.println(getNome() + ", " + getNumeroDeLados() + ", " + getLado());	
+	public double calcularArea() {
+		return this.lado * this.lado;
+	}
+
+	@Override
+	public void preencherTamanhoDosLados() {
+		int[] lados = new int[LADOS];
+
+		for (int x = 0; x < LADOS; x++) {
+			lados[x] = this.lado;
+		}
+		
+		this.setTamanhoLados(lados);
 	}
 }
