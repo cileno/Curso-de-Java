@@ -1,3 +1,7 @@
+/*
+ * 	Classe que estende a JOptionPane com a intesão de diminuir 
+ * a tamanho da linha de código
+ */
 package br.com.buritech.curso.jse.utils;
 
 import javax.swing.JOptionPane;
