@@ -1,6 +1,10 @@
 package br.com.buritech.curso.jse.cap07;
 
-public class Diretor extends Funcionario {
+import cap08.Autenticavel;
+
+public class Diretor extends Funcionario implements Autenticavel {
+
+	private int senha;
 
 	public Diretor(String nome, double salario) {
 		super(nome, salario);
@@ -20,6 +24,19 @@ public class Diretor extends Funcionario {
 	@Override
 	public double getBonus() {
 		return this.getSalario() * 0.5;
+	}
+
+	@Override
+	public boolean autenticar(int senha) {
+		return this.senha == senha;
+	}
+
+	public int getSenha() {
+		return senha;
+	}
+
+	public void setSenha(int senha) {
+		this.senha = senha;
 	}
 
 }

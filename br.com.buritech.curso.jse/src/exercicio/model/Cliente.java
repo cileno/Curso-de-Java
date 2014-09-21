@@ -1,8 +1,12 @@
 package exercicio.model;
 
-public class Cliente {
+import cap08.Autenticavel;
+
+public class Cliente implements Autenticavel {
 	private String cpf;
 	private String nome;
+
+	private int senha;
 
 	public Cliente(String cpf, String nome) {
 		super();
@@ -11,8 +15,14 @@ public class Cliente {
 	}
 
 	@Override
+	public boolean autenticar(int senha) {
+		
+		return this.senha == senha;
+	}
+
+	@Override
 	public String toString() {
-		return "["+cpf+"]"+nome;
+		return "[" + cpf + "]" + nome;
 	}
 
 	public String getCpf() {
@@ -29,6 +39,14 @@ public class Cliente {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public final int getSenha() {
+		return senha;
+	}
+
+	public final void setSenha(int senha) {
+		this.senha = senha;
 	}
 
 }
