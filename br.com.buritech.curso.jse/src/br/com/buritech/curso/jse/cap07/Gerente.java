@@ -17,6 +17,16 @@ public class Gerente extends Funcionario implements Autenticavel {
 	public Gerente(String nome, String cpf, double salario) {
 		super(nome, cpf, salario);
 	}
+	
+	public Gerente(String nome, int senha){
+		super(nome);
+		
+		this.senha = senha;
+	}
+	
+	public Gerente() {
+		super();
+	}
 
 	@Override
 	public double getBonus() {

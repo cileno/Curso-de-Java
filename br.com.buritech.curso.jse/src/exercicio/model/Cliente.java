@@ -13,6 +13,17 @@ public class Cliente implements Autenticavel {
 		this.cpf = cpf;
 		this.nome = nome;
 	}
+	
+	public Cliente(String nome, int senha) {
+		super();
+		
+		this.nome = nome;
+		this.senha = senha;
+	}
+	
+	public Cliente() {
+		super();
+	}
 
 	@Override
 	public boolean autenticar(int senha) {
