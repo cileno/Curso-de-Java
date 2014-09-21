@@ -9,7 +9,7 @@ public class ControleSessao {
 		}
 	}
 	
-	public static int getQtdeSessao() {
+	public int getQtdeSessao() {
 		return qtdeSessao;
 	}
 }

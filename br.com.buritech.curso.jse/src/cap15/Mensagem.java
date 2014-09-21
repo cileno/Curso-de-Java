@@ -18,8 +18,7 @@ public class Mensagem implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Assunto: " + assunto
-				+ "\nMensagem: " + mensagem;
+		return assunto + ": "+ mensagem;
 	}
 	
 	public final String getAssunto() {

@@ -31,6 +31,16 @@ public abstract class Funcionario {
 		this.matricula = (int) Math.random() * Calendar.YEAR;
 	}
 
+	public Funcionario(String nome) {
+		this.nome = nome;
+		
+		this.matricula = (int) Math.random() * Calendar.YEAR;
+	}
+	
+	public Funcionario() {
+		this.matricula = (int) Math.random() * Calendar.YEAR;
+	}
+
 	public String getNome() {
 		return nome;
 	}
