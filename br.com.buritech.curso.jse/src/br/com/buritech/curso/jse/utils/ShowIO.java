@@ -7,6 +7,11 @@ package br.com.buritech.curso.jse.utils;
 import javax.swing.JOptionPane;
 
 public class ShowIO extends JOptionPane {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6074372758047045566L;
+
 	// exibe mensagem pedindo um valor e devolvê-o como string
 	public static String input(String message) {
 		return JOptionPane.showInputDialog(message);
