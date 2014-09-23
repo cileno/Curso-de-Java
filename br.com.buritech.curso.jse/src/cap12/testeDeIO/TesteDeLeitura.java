@@ -1,4 +1,4 @@
-package br.com.buritech.curso.jse.cap12.testeDeIO;
+package cap12.testeDeIO;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
