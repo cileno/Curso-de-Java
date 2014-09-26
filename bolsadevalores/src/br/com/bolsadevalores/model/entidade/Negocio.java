@@ -22,7 +22,8 @@ public final class Negocio {
 	}
 	
 	public Calendar getData() {
-		return data;
+		//return data;
+		return (Calendar) this.data.clone();
 	}
 	
 	//método que retorna o volume

@@ -10,6 +10,7 @@ public final class Candle {
 	private final double volume;
 	private final Calendar date;
 	
+	//para gerar o construtor: crtl+3 + gcuf
 	public Candle(double abertura, double fechamento, double minimo,
 			double maximo, double volume, Calendar date) {
 		this.abertura = abertura;
@@ -20,6 +21,7 @@ public final class Candle {
 		this.date = date;
 	}
 
+	//para gerar os gets e sets: ctrl + 3 + ggas
 	public double getAbertura() {
 		return abertura;
 	}
