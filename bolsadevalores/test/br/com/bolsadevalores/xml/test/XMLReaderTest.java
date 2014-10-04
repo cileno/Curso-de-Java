@@ -1,7 +1,5 @@
 package br.com.bolsadevalores.xml.test;
 
-import static org.junit.Assert.*;
-
 import java.io.StringReader;
 import java.util.List;
 
