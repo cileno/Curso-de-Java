@@ -1,6 +1,10 @@
 package br.com.buritech.curso.jee.control;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -37,18 +41,18 @@ public class ServletController extends HttpServlet {
 		
 		//conforme a chamada da view, escolhe o procedimento a ser realizado
 		switch (metodoEnum) {
-//		case CADASTRAR:
-//			pagina = cadastrar(request);
-//			break;
-//		case ALTERAR:
-//			pagina = alterae(request);
-//			break;
-//		case EXCLUIR:
-//			pagina = excluir(request);
-//			break;
-//		case SALVAR:
-//			pagina = salvar(request);
-//			break;
+		case CADASTRAR:
+			pagina = cadastrar(request);
+			break;
+		case ALTERAR:
+			pagina = alterar(request);
+			break;
+		case EXCLUIR:
+			pagina = excluir(request);
+			break;
+		case SALVAR:
+			pagina = salvar(request);
+			break;
 		case LISTAR:
 			pagina = listar(request);
 			break;
@@ -58,6 +62,56 @@ public class ServletController extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/"+pagina);
 		//redirecionando para a pr'oxima página
 		dispatcher.forward(request, response);
+	}
+
+	private String cadastrar(HttpServletRequest request) {
+		request.setAttribute("empresa", new Empresa());
+		return "dadosEmpresa.jsp";
+	}
+
+	private String alterar(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		Empresa empresa = dao.searchCompany(new Long(id));
+		request.setAttribute("empresa", empresa);
+		return "dadosEmpresa.jsp";
+	}
+
+	private String excluir(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		dao.deleteCompany(new Long(id));
+		return "mensagem.jsp";
+	}
+
+	private String salvar(HttpServletRequest request) {
+		Empresa empresa = new Empresa();
+		
+		String id = request.getParameter("edId");
+		
+		empresa.setCnpj(request.getParameter("edCNPJ"));
+		empresa.setRazaoSocial(request.getParameter("edRazaoSocial"));
+		empresa.setEndereco(request.getParameter("edEndereco"));
+		empresa.setTelefone(request.getParameter("edTelefone"));
+		empresa.setSite(request.getParameter("edSite"));
+		empresa.setEmail(request.getParameter("edEmail"));
+		
+		String strDataCriacao = request.getParameter("edData");
+		
+		try {
+			Date dtDataCriacao = new SimpleDateFormat("dd/MM/yyyy").parse(strDataCriacao);
+			empresa.setDataCriacao(Calendar.getInstance());
+			empresa.getDataCriacao().setTime(dtDataCriacao);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		if(id == null || id.equals("")){
+			dao.insertCompany(empresa);
+		} else {
+			empresa.setId(new Long(id));
+			dao.updateCompany(empresa);
+		}
+		
+		return "mensagem.jsp";
 	}
 
 	private String listar(HttpServletRequest request) {

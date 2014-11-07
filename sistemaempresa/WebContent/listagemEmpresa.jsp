@@ -12,7 +12,7 @@
 				<td>${empresa.cnpj}</td>
 				<td>${empresa.razaoSocial}</td>
 				<td><a href="controller?metodo=alterar&id=${empresa.id}">Alterar</a></td>
-				<td><a href="controller??metodo=excluir&id=${empresa.id}">Excluir</a></td>
+				<td><a href="controller?metodo=excluir&id=${empresa.id}">Excluir</a></td>
 			</tr>
 		</c:forEach>
 	</table>
